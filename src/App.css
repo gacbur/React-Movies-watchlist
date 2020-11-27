@@ -1,38 +1,303 @@
-.App {
-  text-align: center;
+/* GENERAL */
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app{
+    position: relative;
+    min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.app-wrap{
+    padding-bottom: 2.5em;
+}
+
+/* NAV */
+
+.nav{
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    width:100%;
+    background-color: rgb(75, 75, 75);
+}
+
+.logo{    
+    font-weight: 900;
+    padding-left:1em;
+    flex: 1;
+    display: flex;
+}
+
+.logo a{
+    padding:1.5em 2em;
+    font-size:17px;
+    text-decoration: none;
+    color:white;
+}
+
+.logo a:hover{
+    color:rgb(223, 223, 223);
+    text-decoration: underline;
+}
+
+.nav-links-cnt{
+    display: flex;
+    align-items: center;
+    margin-right:10%;
+}
+
+.nav-link{
+    list-style-type: none;
+}
+
+.nav-link a{
+    display: flex;
+    padding:1.5em 2em;
+    font-size:17px;
+    text-decoration: none;
+    color:white;
+}
+
+.nav-link a:hover {
+    background-color: rgb(100, 100, 100);
+}
+
+.nav .count-watched-icon{
+    display: flex;
+    justify-content: center;
+    margin-left:.4em;
+    color:orange;
+    width:2em;
+    background-color: rgb(230, 161, 32);
+    color:white;
+    border-radius: 50em;
+}
+
+.add-btn{
+    text-decoration: none;
+    list-style-type: none;
+    margin-left:1em;
+    color:white;
+}
+
+.add-btn a{
+    color:white;
+    box-shadow: 0 2px 12px rgba(0,0,0,.2);
+    text-decoration: none;
+    padding:.6em 2em;
+    background-color: rgb(230, 161, 32);
+    border-radius: 50em;
+}
+
+.add-btn a:hover{
+    background-color: rgb(201, 142, 33);
+}
+
+/* ADD SECTION */
+
+.add-cnt{
+    padding:4em 0em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-search-cnt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 600px;
+    width: 65%;
+    max-width: 1150px;
+}
+
+.search-input{
+    display: flex;
+    justify-content: center;
+    padding:2em;
+    width:100%;
+}
+
+.search-input input[type="text"]{
+    background-color: rgb(75, 75, 75);
+    width:75%;
+    height: 3em;
+    padding:0em 2em;
+    font-size:16px;
+    border-radius: 50em;
+    border: none;
+    color:white;
+    box-shadow: 0 2px 7px rgba(0,0,0,.2);
+}
+
+.search-results{
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    min-height: 200px;
+}
+
+.movie-cnt{
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+    width:100%;
+    margin:.5em 0em;
+}
+
+.movie-cnt:first-child{
+    border-bottom: 1px solid lightgray;
+}
+
+.movie-cnt + .movie-cnt{
+    border-bottom: 1px solid lightgray;
+}
+
+.movie-poster{
+    width:70px;
+    height: 100%;
+}
+
+.movie-poster img{
+    width: 100%;
+}
+
+.movie-details{
+    width:50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding:1em;
+}
+
+.movie-add-watchlist{
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1em;
+    justify-content: flex-end;
+    padding-right: .2em;
+    width: 50%;
+    height: 100%;
+}
+
+.movie-add-watchlist button{
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    margin-left: 1em;
+    text-decoration: none;
+    padding:.5em .9em;
+    background-color: rgb(230, 161, 32);
+    border:none;
+    color:white;
+    cursor:pointer;
+    border-radius: 50em;
+}
+
+.movie-add-watchlist button:hover{
+
+    background-color: rgb(201, 142, 33);
+}
+
+.movie-add-watchlist button:disabled{
+    background-color: rgb(167, 124, 45);
+}
+
+
+/* WATCHLIST and WATCHED */
+
+.watchlist-cnt{
+    display: flex;
+    justify-content: center;
+    padding:3em 0em;
+    width:100%;
+    min-height: 800px;
+}
+
+.watchlist-content-cnt{
+    width:75%;
+    max-width: 1150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+}
+
+.watchlist-header{
+    width:100%;
+    text-align: left;
+    padding:2em 0em 3em 0em;
+}
+
+.nomovies-header{
+    color:rgb(107, 107, 107);
+}
+
+.Watchlist-movie-card{
+    height: 300px;
+    width: 220px;
+    margin:.2em .2em;
+    position: relative;
+    overflow: hidden;
+}
+
+.Watchlist-movie-card img{
+    border-radius: 6px;
+    height: 300px;
+    width: 220px;
+    border:solid 4px white; 
+}
+
+.Watchlist-movie-card img:hover{
+    transition: 0.3s;
+}
+
+.Watchlist-movie-card:hover .overlay{
+    opacity: 1;
+    transition: .4s;
+  
+}
+
+.overlay{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    bottom:20px;
+    left:5px;
+    right:5px;
+    height: 80px;
+    width:96%;
+    background-color: rgba(0,0,0,0.7);
+    box-shadow: 0 2px 12px rgba(0,0,0,.6);
+}
+
+
+.ctrl-btn{
+    color:white;
+    background-color: black;
+    border:none;
+    padding:1em;
+    border:1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ctrl-btn + .ctrl-btn{
+    margin-left:.4em;
+}
+
+/* FOOTER */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3.5em;     
+    background-color: rgb(75, 75, 75);
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
